@@ -2,17 +2,35 @@
 <html lang="en">
 
 <head>
+
     <meta charset="UTF-8">
 
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <title>Desarae McNair | Technology & Product Strategy</title>
+    <title>Desarae McNair | Technical Product Manager</title>
 
     <style>
 
-        /* =========================
-           GENERAL STYLES
-        ========================= */
+        /* =========================================
+           ROOT VARIABLES
+        ========================================= */
+
+        :root {
+            --background: #080d18;
+            --background-light: #0d1422;
+            --card: #101827;
+            --orange: #ff6b00;
+            --orange-light: #ff7a1a;
+            --white: #f4f7fb;
+            --blue-text: #91a9cc;
+            --blue-light: #b1c4df;
+            --border: rgba(145, 169, 204, 0.16);
+        }
+
+
+        /* =========================================
+           RESET
+        ========================================= */
 
         * {
             margin: 0;
@@ -20,501 +38,1250 @@
             box-sizing: border-box;
         }
 
-        body {
-            font-family: Arial, sans-serif;
-            line-height: 1.6;
-            color: #222;
-            background: #ffffff;
+
+        html {
+            scroll-behavior: smooth;
         }
 
-        a {
-            text-decoration: none;
-            color: inherit;
+
+        body {
+            font-family: Arial, Helvetica, sans-serif;
+            background: var(--background);
+            color: var(--white);
+            line-height: 1.6;
+            overflow-x: hidden;
         }
+
+
+        a {
+            color: inherit;
+            text-decoration: none;
+        }
+
+
+        img {
+            max-width: 100%;
+            display: block;
+        }
+
 
         .container {
             width: 90%;
-            max-width: 1200px;
-            margin: auto;
+            max-width: 1250px;
+            margin: 0 auto;
         }
 
-        /* =========================
+
+        /* =========================================
+           GRID BACKGROUND
+        ========================================= */
+
+        body::before {
+            content: "";
+            position: fixed;
+            inset: 0;
+
+            background-image:
+                linear-gradient(
+                    rgba(145, 169, 204, 0.035) 1px,
+                    transparent 1px
+                ),
+                linear-gradient(
+                    90deg,
+                    rgba(145, 169, 204, 0.035) 1px,
+                    transparent 1px
+                );
+
+            background-size: 70px 70px;
+
+            pointer-events: none;
+
+            z-index: -2;
+        }
+
+
+        /* =========================================
            NAVIGATION
-        ========================= */
+        ========================================= */
 
         nav {
             position: sticky;
             top: 0;
-            background: white;
-            padding: 20px 0;
-            border-bottom: 1px solid #eee;
+
+            background: rgba(8, 13, 24, 0.92);
+
+            backdrop-filter: blur(12px);
+
+            border-bottom: 1px solid var(--border);
+
             z-index: 1000;
         }
 
-        nav .container {
+
+        .nav-container {
+            min-height: 72px;
+
             display: flex;
-            justify-content: space-between;
             align-items: center;
+            justify-content: space-between;
         }
 
-        nav ul {
+
+        .logo {
+            color: var(--orange);
+
+            font-size: 18px;
+
+            font-weight: 700;
+
+            letter-spacing: 1px;
+        }
+
+
+        .nav-links {
             display: flex;
-            gap: 25px;
+
+            align-items: center;
+
+            gap: 40px;
+
             list-style: none;
         }
 
-        nav a:hover {
-            opacity: 0.6;
+
+        .nav-links a {
+            color: var(--blue-text);
+
+            font-size: 16px;
+
+            transition: 0.3s;
         }
 
-        /* =========================
-           HERO SECTION
-        ========================= */
+
+        .nav-links a:hover {
+            color: var(--orange);
+        }
+
+
+        /* =========================================
+           HERO
+        ========================================= */
 
         .hero {
-            padding: 120px 0;
-            text-align: center;
+            min-height: 720px;
+
+            display: flex;
+
+            align-items: center;
+
+            position: relative;
         }
+
+
+        .hero-container {
+            display: grid;
+
+            grid-template-columns: 1.05fr 0.95fr;
+
+            gap: 70px;
+
+            align-items: center;
+        }
+
+
+        .hello {
+            color: var(--orange);
+
+            font-family: monospace;
+
+            font-size: 20px;
+
+            margin-bottom: 25px;
+        }
+
 
         .hero h1 {
-            font-size: 60px;
-            margin-bottom: 20px;
+            font-size: clamp(55px, 7vw, 88px);
+
+            line-height: 1.02;
+
+            letter-spacing: -3px;
+
+            margin-bottom: 35px;
         }
 
-        .hero p {
-            font-size: 22px;
-            max-width: 750px;
-            margin: auto;
+
+        .hero-title {
+            color: var(--orange);
+
+            font-size: 29px;
+
+            font-weight: 600;
+
+            margin-bottom: 28px;
         }
 
-        /* =========================
-           SECTION STYLES
-        ========================= */
+
+        .hero-description {
+            color: var(--blue-text);
+
+            font-size: 19px;
+
+            max-width: 650px;
+
+            margin-bottom: 18px;
+        }
+
+
+        .hero-description.secondary {
+            font-size: 17px;
+
+            line-height: 1.8;
+
+            max-width: 700px;
+        }
+
+
+        /* =========================================
+           HERO BUTTONS
+        ========================================= */
+
+        .hero-buttons {
+            display: flex;
+
+            gap: 16px;
+
+            margin-top: 40px;
+
+            flex-wrap: wrap;
+        }
+
+
+        .btn {
+            display: inline-flex;
+
+            align-items: center;
+
+            justify-content: center;
+
+            gap: 10px;
+
+            padding: 14px 25px;
+
+            border-radius: 8px;
+
+            font-size: 17px;
+
+            font-weight: 600;
+
+            transition: 0.3s;
+
+            cursor: pointer;
+        }
+
+
+        .btn-primary {
+            background: var(--orange);
+
+            color: #080d18;
+        }
+
+
+        .btn-primary:hover {
+            background: var(--orange-light);
+
+            transform: translateY(-2px);
+        }
+
+
+        .btn-outline {
+            border: 1px solid var(--border);
+
+            color: var(--blue-light);
+
+            background: rgba(255,255,255,0.01);
+        }
+
+
+        .btn-outline:hover {
+            border-color: var(--orange);
+
+            color: var(--orange);
+        }
+
+
+        /* =========================================
+           HERO PHOTO
+        ========================================= */
+
+        .hero-photo-wrapper {
+            position: relative;
+
+            display: flex;
+
+            justify-content: center;
+        }
+
+
+        .hero-photo-frame {
+            width: min(440px, 90%);
+
+            padding: 12px;
+
+            border: 1px solid var(--orange);
+
+            border-radius: 18px;
+
+            position: relative;
+
+            box-shadow:
+                0 0 70px rgba(255, 107, 0, 0.16);
+        }
+
+
+        .hero-photo-frame::before {
+            content: "";
+
+            position: absolute;
+
+            inset: -14px;
+
+            border: 1px solid rgba(255, 107, 0, 0.18);
+
+            border-radius: 22px;
+
+            z-index: -1;
+        }
+
+
+        .hero-photo {
+            width: 100%;
+
+            aspect-ratio: 4 / 5;
+
+            object-fit: cover;
+
+            border-radius: 15px;
+
+            background: var(--background-light);
+        }
+
+
+        .orange-dot {
+            position: absolute;
+
+            width: 18px;
+
+            height: 18px;
+
+            background: var(--orange);
+
+            border-radius: 50%;
+
+            right: -7px;
+
+            bottom: 20px;
+
+            border: 2px solid var(--background);
+        }
+
+
+        /* =========================================
+           SECTION
+        ========================================= */
 
         section {
-            padding: 90px 0;
+            padding: 110px 0;
+
+            border-top: 1px solid rgba(145, 169, 204, 0.08);
         }
 
-        section h2 {
-            font-size: 40px;
-            margin-bottom: 30px;
+
+        .section-label {
+            color: var(--orange);
+
+            font-family: monospace;
+
+            font-size: 15px;
+
+            margin-bottom: 12px;
+        }
+
+
+        .section-title {
+            font-size: clamp(38px, 5vw, 58px);
+
+            letter-spacing: -2px;
+
+            margin-bottom: 25px;
+        }
+
+
+        .section-intro {
+            color: var(--blue-text);
+
+            font-size: 18px;
+
+            max-width: 750px;
+
+            margin-bottom: 55px;
         }
 
     </style>
+
 </head>
 <body>
 
-    <!-- =========================
+
+    <!-- =========================================
          NAVIGATION
-    ========================= -->
+    ========================================= -->
 
     <nav>
-        <div class="container">
 
-            <strong>Desarae McNair</strong>
+        <div class="container nav-container">
 
-            <ul>
-                <li><a href="#about">About</a></li>
-                <li><a href="#skills">Skills</a></li>
-                <li><a href="#projects">Projects</a></li>
-                <li><a href="#experience">Experience</a></li>
-                <li><a href="#contact">Contact</a></li>
+            <a href="#home" class="logo">
+                DM
+            </a>
+
+
+            <ul class="nav-links">
+
+                <li>
+                    <a href="#home">Home</a>
+                </li>
+
+                <li>
+                    <a href="#about">About</a>
+                </li>
+
+                <li>
+                    <a href="#experience">Experience</a>
+                </li>
+
+                <li>
+                    <a href="#projects">Projects</a>
+                </li>
+
+                <li>
+                    <a href="#education">Education</a>
+                </li>
+
+                <li>
+                    <a href="#contact">Contact</a>
+                </li>
+
             </ul>
 
         </div>
+
     </nav>
 
 
-    <!-- =========================
-         HERO
-    ========================= -->
 
-    <section class="hero">
+    <!-- =========================================
+         HERO / HOME
+    ========================================= -->
 
-        <div class="container">
+    <main id="home">
 
-            <h1>Desarae McNair</h1>
+        <section class="hero">
 
-            <p>
-                I connect technology, user needs, and product strategy
-                to create practical digital solutions.
-            </p>
-
-        </div>
-
-    </section>
-      <!-- =========================
-         ABOUT
-    ========================= -->
-
-    <section id="about">
-
-        <div class="container">
-
-            <h2>Technology should adapt to people.</h2>
-
-            <p>
-                I am a technology professional with a background in
-                computer science, cybersecurity, higher education,
-                user experience, and product strategy.
-            </p>
-
-            <br>
-
-            <p>
-                My work focuses on understanding how people interact
-                with technology and turning those needs into practical,
-                user-centered solutions.
-            </p>
-
-            <br>
-
-            <p>
-                I am especially interested in the intersection of
-                technology, education, accessibility, artificial
-                intelligence, and product development.
-            </p>
-
-        </div>
-
-    </section>
-      <!-- =========================
-         SKILLS
-    ========================= -->
-
-    <section id="skills">
-
-        <div class="container">
-
-            <h2>Skills</h2>
-
-            <h3>Product Strategy</h3>
-
-            <p>
-                Product Discovery • Roadmapping • Requirements Gathering
-                • Stakeholder Management • Agile Methodologies
-            </p>
-
-            <br>
-
-            <h3>UX & Research</h3>
-
-            <p>
-                User Research • HCI • UX Strategy • User Personas
-                • Usability • Journey Mapping
-            </p>
-
-            <br>
-
-            <h3>Technology</h3>
-
-            <p>
-                Python • SQL • AWS • Azure • Machine Learning
-                • Cybersecurity • COBOL • Mainframe Technologies
-            </p>
-
-        </div>
-
-    </section>
-    <!-- =========================
-         PROJECTS
-    ========================= -->
-
-    <section id="projects">
-
-        <div class="container">
-
-            <h2>Projects</h2>
+            <div class="container hero-container">
 
 
-            <!-- Neuro Adapt AI -->
+                <!-- HERO TEXT -->
 
-            <div class="project-card">
+                <div>
 
-                <h3>Neuro Adapt AI</h3>
+                    <div class="hello">
+                        Hello,
+                    </div>
 
-                <p>
-                    Assistive technology concept focused on creating
-                    technology that learns the individual rather than
-                    requiring the individual to learn the technology.
-                </p>
 
-                <p>
-                    <strong>Focus:</strong>
-                    AI • Accessibility • Product Strategy • UX
-                </p>
+                    <h1>
+                        I'm Desarae<br>
+                        McNair
+                    </h1>
 
-                <a
-                    href="https://www.figma.com/make/QAwxkUseq6yOP6yF7zvnFY/High-Fidelity-Prototype-for-Neuro-Adapt-AI?t=aOg0WsbCCE9SAnrg-1"
-                    target="_blank"
-                    rel="noopener noreferrer">
-                    View Prototype →
-                </a>
+
+                    <div class="hero-title">
+                        Technical Product Manager
+                    </div>
+
+
+                    <p class="hero-description">
+                        Building digital products that connect
+                        technology, user experience, and business impact.
+                    </p>
+
+
+                    <p class="hero-description secondary">
+                        With expertise in Human-Computer Interaction,
+                        Product Strategy, Cybersecurity, and Computer
+                        Science, I transform complex problems into
+                        intuitive user-centered solutions.
+                    </p>
+
+
+                    <div class="hero-buttons">
+
+                        <a href="#projects" class="btn btn-primary">
+                            ← &nbsp; View Projects
+                        </a>
+
+
+                        <a
+                            href="#"
+                            class="btn btn-outline"
+                            target="_blank"
+                            rel="noopener noreferrer"
+                        >
+                            ⇩ &nbsp; Download Resume
+                        </a>
+
+                    </div>
+
+                </div>
+
+
+
+                <!-- HERO PHOTO -->
+
+                <div class="hero-photo-wrapper">
+
+                    <div class="hero-photo-frame">
+
+                        <!--
+                            Replace profile.jpg with your professional
+                            headshot file name after uploading it to GitHub.
+                        -->
+
+                        <img
+                            src="profile.jpg"
+                            alt="Desarae McNair"
+                            class="hero-photo"
+                        >
+
+                        <div class="orange-dot"></div>
+
+                    </div>
+
+                </div>
 
             </div>
 
+        </section>
 
-            <!-- Advising Hub -->
 
-            <div class="project-card">
 
-                <h3>Advising Hub</h3>
+        <!-- =========================================
+             ABOUT
+        ========================================= -->
 
-                <p>
-                    Centralized advising platform concept designed to
-                    improve academic planning, communication, and
-                    student success.
+        <section id="about">
+
+            <div class="container">
+
+                <div class="section-label">
+                    01 / ABOUT
+                </div>
+
+
+                <h2 class="section-title">
+                    Technology should adapt to people.
+                </h2>
+
+
+                <p class="section-intro">
+                    I approach technology from both sides of the
+                    problem — understanding the technical system
+                    while also understanding the people who use it.
                 </p>
 
-                <p>
-                    <strong>Focus:</strong>
-                    Product Management • UX Strategy • Higher Education
-                </p>
 
-                <a
-                    href="https://www.figma.com/make/cvJzL1l3Rx2j5ljgOvPysQ/Advising-website?t=fBPPiTjv8V4phSsI-1"
-                    target="_blank"
-                    rel="noopener noreferrer">
-                    View Prototype →
-                </a>
+                <div class="about-grid">
+
+                    <div>
+                        <p>
+                            My background combines computer science,
+                            cybersecurity, human-computer interaction,
+                            higher education, and product strategy.
+                        </p>
+                    </div>
+
+
+                    <div>
+                        <p>
+                            As an Academic Advisor and technology
+                            professional, I see firsthand where systems
+                            create friction for students and users.
+                            That experience drives my interest in
+                            building technology that is useful,
+                            accessible, and intuitive.
+                        </p>
+                    </div>
+
+                </div>
 
             </div>
 
+        </section>
+                <!-- =========================================
+             EXPERIENCE
+        ========================================= -->
 
-            <!-- Student Job Connect -->
+        <section id="experience">
 
-            <div class="project-card">
+            <div class="container">
 
-                <h3>Student Job Connect</h3>
+                <div class="section-label">
+                    02 / EXPERIENCE
+                </div>
 
-                <p>
-                    Student employment platform designed to connect
-                    students with flexible, degree-relevant employment
-                    opportunities.
+
+                <h2 class="section-title">
+                    Experience
+                </h2>
+
+
+                <p class="section-intro">
+                    A combination of technology, education,
+                    research, leadership, and project experience.
                 </p>
 
-                <p>
-                    <strong>Focus:</strong>
-                    Product Discovery • User Research • UX Design
-                </p>
 
-                <a
-                    href="https://www.figma.com/make/MGXNO8SrnERQQr5AHc2qAj/Student-Job-Connection-Platform?t=gtfMAKo6FdtvFnRD-1"
-                    target="_blank"
-                    rel="noopener noreferrer">
-                    View Prototype →
-                </a>
+                <div class="experience-list">
+
+
+                    <div class="experience-item">
+
+                        <div class="experience-date">
+                            2024 — Present
+                        </div>
+
+                        <div>
+
+                            <h3>
+                                Academic Advisor
+                            </h3>
+
+                            <p class="experience-company">
+                                University of Southern Mississippi
+                            </p>
+
+                            <p>
+                                Support undergraduate students while
+                                managing academic planning, student
+                                success, stakeholder communication,
+                                and process improvement opportunities.
+                            </p>
+
+                        </div>
+
+                    </div>
+
+
+
+                    <div class="experience-item">
+
+                        <div class="experience-date">
+                            2026 — Present
+                        </div>
+
+                        <div>
+
+                            <h3>
+                                Adjunct Instructor
+                            </h3>
+
+                            <p class="experience-company">
+                                University of Southern Mississippi
+                            </p>
+
+                            <p>
+                                Teach undergraduate Mainframe Systems
+                                and COBOL while helping students develop
+                                technical and industry-relevant skills.
+                            </p>
+
+                        </div>
+
+                    </div>
+
+
+
+                    <div class="experience-item">
+
+                        <div class="experience-date">
+                            2024 — 2025
+                        </div>
+
+                        <div>
+
+                            <h3>
+                                Research Assistant
+                            </h3>
+
+                            <p class="experience-company">
+                                University of Southern Mississippi
+                            </p>
+
+                            <p>
+                                Conducted cybersecurity research involving
+                                machine learning, network traffic analysis,
+                                IoT environments, and anomaly detection.
+                            </p>
+
+                        </div>
+
+                    </div>
+
+
+
+                    <div class="experience-item">
+
+                        <div class="experience-date">
+                            2023
+                        </div>
+
+                        <div>
+
+                            <h3>
+                                Equipment Specialist
+                            </h3>
+
+                            <p class="experience-company">
+                                Technical Operations
+                            </p>
+
+                            <p>
+                                Managed technical equipment projects,
+                                troubleshooting, stakeholder requests,
+                                and project deliverables.
+                            </p>
+
+                        </div>
+
+                    </div>
+
+                </div>
 
             </div>
 
+        </section>
 
-            <!-- Mobile Mechanic -->
 
-            <div class="project-card">
 
-                <h3>Mobile Mechanic Marketplace</h3>
+        <!-- =========================================
+             PROJECTS
+        ========================================= -->
 
-                <p>
-                    On-demand marketplace concept connecting customers
-                    with mobile automotive service providers.
+        <section id="projects">
+
+            <div class="container">
+
+                <div class="section-label">
+                    03 / SELECTED WORK
+                </div>
+
+
+                <h2 class="section-title">
+                    Projects
+                </h2>
+
+
+                <p class="section-intro">
+                    A selection of product, UX, technology, and
+                    research projects focused on solving real problems.
                 </p>
 
-                <p>
-                    <strong>Focus:</strong>
-                    Product Strategy • Service Design • Customer Journey
-                </p>
+
+                <div class="projects-grid">
+
+
+                    <!-- =====================================
+                         NEURO ADAPT AI
+                    ====================================== -->
+
+                    <article class="project-card featured">
+
+                        <div class="project-number">
+                            01
+                        </div>
+
+
+                        <div class="project-content">
+
+                            <div class="project-tag">
+                                ONGOING PRODUCT CONCEPT
+                            </div>
+
+
+                            <h3>
+                                Neuro Adapt AI
+                            </h3>
+
+
+                            <p class="project-subtitle">
+                                Assistive Technology • AI • UX • Product Strategy
+                            </p>
+
+
+                            <p>
+                                An assistive technology concept built
+                                around one central idea:
+                                <strong>
+                                    the technology learns the person,
+                                    rather than the person learning
+                                    the technology.
+                                </strong>
+                            </p>
+
+
+                            <div class="project-tags">
+
+                                <span>AI</span>
+                                <span>Accessibility</span>
+                                <span>UX</span>
+                                <span>Product Strategy</span>
+
+                            </div>
+
+
+                            <a
+                                href="https://www.figma.com/make/QAwxkUseq6yOP6yF7zvnFY/High-Fidelity-Prototype-for-Neuro-Adapt-AI?t=aOg0WsbCCE9SAnrg-1"
+                                class="project-link"
+                                target="_blank"
+                                rel="noopener noreferrer"
+                            >
+                                View Case Study →
+                            </a>
+
+                        </div>
+
+                    </article>
+
+
+
+                    <!-- =====================================
+                         ADVISING HUB
+                    ====================================== -->
+
+                    <article class="project-card">
+
+                        <div class="project-number">
+                            02
+                        </div>
+
+
+                        <div class="project-content">
+
+                            <div class="project-tag">
+                                PRODUCT / UX
+                            </div>
+
+
+                            <h3>
+                                Advising Hub
+                            </h3>
+
+
+                            <p class="project-subtitle">
+                                Higher Education • UX Strategy • Product Design
+                            </p>
+
+
+                            <p>
+                                A centralized advising platform concept
+                                designed to improve academic planning,
+                                communication, and student success.
+                            </p>
+
+
+                            <div class="project-tags">
+
+                                <span>HCI</span>
+                                <span>UX</span>
+                                <span>Education</span>
+                                <span>Product Strategy</span>
+
+                            </div>
+
+
+                            <a
+                                href="https://www.figma.com/make/cvJzL1l3Rx2j5ljgOvPysQ/Advising-website?t=fBPPiTjv8V4phSsI-1"
+                                class="project-link"
+                                target="_blank"
+                                rel="noopener noreferrer"
+                            >
+                                View Case Study →
+                            </a>
+
+                        </div>
+
+                    </article>
+
+
+
+                    <!-- =====================================
+                         STUDENT JOB CONNECT
+                    ====================================== -->
+
+                    <article class="project-card">
+
+                        <div class="project-number">
+                            03
+                        </div>
+
+
+                        <div class="project-content">
+
+                            <div class="project-tag">
+                                PRODUCT DISCOVERY
+                            </div>
+
+
+                            <h3>
+                                Student Job Connect
+                            </h3>
+
+
+                            <p class="project-subtitle">
+                                User Research • Product Discovery • UX
+                            </p>
+
+
+                            <p>
+                                A student employment platform designed
+                                to connect students with flexible,
+                                degree-relevant employment opportunities.
+                            </p>
+
+
+                            <div class="project-tags">
+
+                                <span>User Research</span>
+                                <span>Personas</span>
+                                <span>MVP</span>
+                                <span>UX Design</span>
+
+                            </div>
+
+
+                            <a
+                                href="https://www.figma.com/make/MGXNO8SrnERQQr5AHc2qAj/Student-Job-Connection-Platform?t=gtfMAKo6FdtvFnRD-1"
+                                class="project-link"
+                                target="_blank"
+                                rel="noopener noreferrer"
+                            >
+                                View Case Study →
+                            </a>
+
+                        </div>
+
+                    </article>
+
+
+
+                    <!-- =====================================
+                         MOBILE MECHANIC
+                    ====================================== -->
+
+                    <article class="project-card">
+
+                        <div class="project-number">
+                            04
+                        </div>
+
+
+                        <div class="project-content">
+
+                            <div class="project-tag">
+                                PRODUCT STRATEGY
+                            </div>
+
+
+                            <h3>
+                                Mobile Mechanic Marketplace
+                            </h3>
+
+
+                            <p class="project-subtitle">
+                                Service Design • Marketplace • UX
+                            </p>
+
+
+                            <p>
+                                An on-demand marketplace concept designed
+                                to connect customers with mobile automotive
+                                service providers.
+                            </p>
+
+
+                            <div class="project-tags">
+
+                                <span>Product Strategy</span>
+                                <span>Customer Journey</span>
+                                <span>Service Design</span>
+
+                            </div>
+
+
+                            <!--
+                                Add your Figma link here when ready.
+
+                                Example:
+
+                                <a
+                                    href="YOUR-FIGMA-LINK"
+                                    class="project-link"
+                                    target="_blank"
+                                    rel="noopener noreferrer"
+                                >
+                                    View Case Study →
+                                </a>
+                            -->
+
+                        </div>
+
+                    </article>
+
+
+
+                    <!-- =====================================
+                         IOT CYBERSECURITY
+                    ====================================== -->
+
+                    <article class="project-card">
+
+                        <div class="project-number">
+                            05
+                        </div>
+
+
+                        <div class="project-content">
+
+                            <div class="project-tag">
+                                RESEARCH
+                            </div>
+
+
+                            <h3>
+                                IoT Cybersecurity Research
+                            </h3>
+
+
+                            <p class="project-subtitle">
+                                Machine Learning • Cybersecurity • Research
+                            </p>
+
+
+                            <p>
+                                Research focused on machine learning
+                                models for detecting anomalies in network
+                                traffic and Internet of Things environments.
+                            </p>
+
+
+                            <div class="project-tags">
+
+                                <span>Python</span>
+                                <span>Machine Learning</span>
+                                <span>Cybersecurity</span>
+                                <span>IoT</span>
+
+                            </div>
+
+                        </div>
+
+                    </article>
+
+
+                </div>
 
             </div>
 
+        </section>
+                <!-- =========================================
+             EDUCATION
+        ========================================= -->
 
-            <!-- IoT Cybersecurity -->
+        <section id="education">
 
-            <div class="project-card">
+            <div class="container">
 
-                <h3>IoT Cybersecurity Research</h3>
+                <div class="section-label">
+                    04 / EDUCATION
+                </div>
 
-                <p>
-                    Research focused on machine learning models for
-                    detecting anomalies in network traffic and
-                    Internet of Things environments.
-                </p>
 
-                <p>
-                    <strong>Focus:</strong>
-                    Machine Learning • Cybersecurity • Research
-                </p>
+                <h2 class="section-title">
+                    Education & Development
+                </h2>
+
+
+                <div class="education-grid">
+
+
+                    <div class="education-card">
+
+                        <div class="education-year">
+                            2025
+                        </div>
+
+                        <h3>
+                            M.S. Computer Science
+                        </h3>
+
+                        <p>
+                            University of Southern Mississippi
+                        </p>
+
+                    </div>
+
+
+
+                    <div class="education-card">
+
+                        <div class="education-year">
+                            2023
+                        </div>
+
+                        <h3>
+                            B.S. Cybersecurity
+                        </h3>
+
+                        <p>
+                            University of Southern Mississippi
+                        </p>
+
+                    </div>
+
+
+
+                    <div class="education-card">
+
+                        <div class="education-year">
+                            2026
+                        </div>
+
+                        <h3>
+                            IBM Project Management Professional Certificate
+                        </h3>
+
+                        <p>
+                            Expected December 2026
+                        </p>
+
+                    </div>
+
+
+
+                    <div class="education-card">
+
+                        <div class="education-year">
+                            Leadership
+                        </div>
+
+                        <h3>
+                            Technology & Student Leadership
+                        </h3>
+
+                        <p>
+                            IBM Z Student Ambassador<br>
+                            LSAMP Vice President & Founding Member
+                        </p>
+
+                    </div>
+
+                </div>
 
             </div>
 
-        </div>
-
-    </section>
-      <!-- =========================
-         EXPERIENCE
-    ========================= -->
-
-    <section id="experience">
-
-        <div class="container">
-
-            <h2>Experience</h2>
+        </section>
 
 
-            <h3>Academic Advisor</h3>
 
-            <p>
-                University of Southern Mississippi | 2024–Present
-            </p>
+        <!-- =========================================
+             CONTACT
+        ========================================= -->
 
-            <p>
-                Manage academic advising and student success for
-                572+ undergraduate students while identifying
-                opportunities to improve student processes and
-                technology.
-            </p>
+        <section id="contact">
 
-            <br>
+            <div class="container contact-section">
+
+                <div class="section-label">
+                    05 / CONTACT
+                </div>
 
 
-            <h3>Adjunct Instructor</h3>
-
-            <p>
-                University of Southern Mississippi | 2026–Present
-            </p>
-
-            <p>
-                Teach undergraduate Mainframe Systems and COBOL,
-                helping students develop technical skills and
-                industry-relevant knowledge.
-            </p>
-
-            <br>
+                <h2 class="section-title">
+                    Let's build something meaningful.
+                </h2>
 
 
-            <h3>Research Assistant</h3>
-
-            <p>
-                University of Southern Mississippi | 2024–2025
-            </p>
-
-            <p>
-                Conducted cybersecurity research involving machine
-                learning, network traffic, and IoT anomaly detection.
-            </p>
-
-            <br>
+                <p class="section-intro">
+                    I'm interested in opportunities where technology,
+                    product strategy, user experience, education,
+                    and innovation intersect.
+                </p>
 
 
-            <h3>Equipment Specialist</h3>
+                <div class="contact-links">
 
-            <p>
-                2023
-            </p>
-
-            <p>
-                Managed technical equipment projects, troubleshooting,
-                stakeholder requests, and project deliverables.
-            </p>
-
-        </div>
-
-    </section>
-      <!-- =========================
-         EDUCATION & DEVELOPMENT
-    ========================= -->
-
-    <section id="education">
-
-        <div class="container">
-
-            <h2>Education & Development</h2>
-
-            <p>
-                <strong>M.S. Computer Science</strong><br>
-                University of Southern Mississippi
-            </p>
-
-            <br>
-
-            <p>
-                <strong>B.S. Cybersecurity</strong><br>
-                University of Southern Mississippi
-            </p>
-
-            <br>
-
-            <p>
-                <strong>IBM Project Management Professional Certificate</strong><br>
-                Expected December 2026
-            </p>
-
-            <br>
-
-            <p>
-                <strong>Leadership</strong><br>
-                IBM Z Student Ambassador<br>
-                LSAMP Vice President & Founding Member
-            </p>
-
-        </div>
-
-    </section>
-      <!-- =========================
-         CONTACT
-    ========================= -->
-
-    <section id="contact">
-
-        <div class="container">
-
-            <h2>Let's Connect</h2>
-
-            <p>
-                I am interested in opportunities involving technology,
-                product strategy, higher education, UX, EdTech,
-                and innovative digital solutions.
-            </p>
-
-            <br>
-
-            <p>
-                Email:
-                <a href="mailto:alkendria.mcnair@outlook.com">
-                    alkendria.mcnair@outlook.com
-                </a>
-            </p>
-
-            <br>
-
-            <p>
-                LinkedIn:
-                <a href="#" target="_blank">
-                    LinkedIn Profile
-                </a>
-            </p>
-
-            <p>
-                GitHub:
-                <a href="#" target="_blank">
-                    GitHub Profile
-                </a>
-            </p>
-
-        </div>
-
-    </section>
+                    <a
+                        href="mailto:alkendria.mcnair@outlook.com"
+                        class="btn btn-primary"
+                    >
+                        Email Me →
+                    </a>
 
 
-    <!-- =========================
+                    <!-- Replace # with your LinkedIn URL -->
+
+                    <a
+                        href="#"
+                        class="btn btn-outline"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                    >
+                        LinkedIn
+                    </a>
+
+
+                    <!-- Replace # with your GitHub URL -->
+
+                    <a
+                        href="#"
+                        class="btn btn-outline"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                    >
+                        GitHub
+                    </a>
+
+                </div>
+
+            </div>
+
+        </section>
+
+    </main>
+
+
+
+    <!-- =========================================
          FOOTER
-    ========================= -->
+    ========================================= -->
 
     <footer>
 
         <div class="container">
 
             <p>
-                © 2026 Desarae McNair. All rights reserved.
+                © 2026 Desarae McNair
             </p>
 
         </div>
@@ -522,7 +1289,453 @@
     </footer>
 
 
+
+    <!-- =========================================
+         ADDITIONAL STYLES
+    ========================================= -->
+
+    <style>
+
+
+        /* =========================================
+           ABOUT
+        ========================================= */
+
+        .about-grid {
+            display: grid;
+
+            grid-template-columns: 1fr 1fr;
+
+            gap: 50px;
+        }
+
+
+        .about-grid p {
+            color: var(--blue-text);
+
+            font-size: 18px;
+
+            line-height: 1.9;
+        }
+
+
+
+        /* =========================================
+           EXPERIENCE
+        ========================================= */
+
+        .experience-list {
+            border-top: 1px solid var(--border);
+        }
+
+
+        .experience-item {
+            display: grid;
+
+            grid-template-columns: 180px 1fr;
+
+            gap: 50px;
+
+            padding: 35px 0;
+
+            border-bottom: 1px solid var(--border);
+        }
+
+
+        .experience-date {
+            color: var(--orange);
+
+            font-family: monospace;
+
+            font-size: 15px;
+        }
+
+
+        .experience-item h3 {
+            font-size: 26px;
+
+            margin-bottom: 5px;
+        }
+
+
+        .experience-company {
+            color: var(--orange);
+
+            margin-bottom: 15px;
+        }
+
+
+        .experience-item p:last-child {
+            color: var(--blue-text);
+
+            max-width: 800px;
+        }
+
+
+
+        /* =========================================
+           PROJECTS
+        ========================================= */
+
+        .projects-grid {
+            display: grid;
+
+            grid-template-columns: repeat(2, 1fr);
+
+            gap: 25px;
+        }
+
+
+        .project-card {
+            background: rgba(16, 24, 39, 0.78);
+
+            border: 1px solid var(--border);
+
+            border-radius: 14px;
+
+            padding: 35px;
+
+            min-height: 430px;
+
+            display: flex;
+
+            flex-direction: column;
+
+            position: relative;
+
+            overflow: hidden;
+
+            transition: 0.3s;
+        }
+
+
+        .project-card:hover {
+            border-color: rgba(255, 107, 0, 0.6);
+
+            transform: translateY(-5px);
+
+            box-shadow:
+                0 20px 50px rgba(0, 0, 0, 0.25);
+        }
+
+
+        .project-card.featured {
+            grid-column: span 2;
+
+            min-height: 380px;
+
+            background:
+                linear-gradient(
+                    135deg,
+                    rgba(255, 107, 0, 0.07),
+                    rgba(16, 24, 39, 0.9)
+                );
+        }
+
+
+        .project-number {
+            color: var(--orange);
+
+            font-family: monospace;
+
+            font-size: 15px;
+
+            margin-bottom: 30px;
+        }
+
+
+        .project-content {
+            max-width: 850px;
+        }
+
+
+        .project-tag {
+            color: var(--orange);
+
+            font-family: monospace;
+
+            font-size: 13px;
+
+            letter-spacing: 1px;
+
+            margin-bottom: 12px;
+        }
+
+
+        .project-card h3 {
+            font-size: 34px;
+
+            margin-bottom: 8px;
+        }
+
+
+        .project-subtitle {
+            color: var(--blue-light);
+
+            font-size: 16px;
+
+            margin-bottom: 22px;
+        }
+
+
+        .project-card p {
+            color: var(--blue-text);
+
+            font-size: 17px;
+
+            line-height: 1.75;
+        }
+
+
+        .project-card strong {
+            color: var(--white);
+        }
+
+
+        .project-tags {
+            display: flex;
+
+            flex-wrap: wrap;
+
+            gap: 8px;
+
+            margin-top: 25px;
+        }
+
+
+        .project-tags span {
+            padding: 6px 10px;
+
+            border: 1px solid var(--border);
+
+            border-radius: 5px;
+
+            color: var(--blue-light);
+
+            font-size: 12px;
+        }
+
+
+        .project-link {
+            display: inline-block;
+
+            color: var(--orange);
+
+            font-weight: 600;
+
+            margin-top: 30px;
+
+            transition: 0.3s;
+        }
+
+
+        .project-link:hover {
+            color: var(--white);
+
+            transform: translateX(5px);
+        }
+
+
+
+        /* =========================================
+           EDUCATION
+        ========================================= */
+
+        .education-grid {
+            display: grid;
+
+            grid-template-columns: repeat(2, 1fr);
+
+            gap: 20px;
+        }
+
+
+        .education-card {
+            background: rgba(16, 24, 39, 0.75);
+
+            border: 1px solid var(--border);
+
+            border-radius: 12px;
+
+            padding: 30px;
+        }
+
+
+        .education-year {
+            color: var(--orange);
+
+            font-family: monospace;
+
+            margin-bottom: 15px;
+        }
+
+
+        .education-card h3 {
+            font-size: 23px;
+
+            margin-bottom: 8px;
+        }
+
+
+        .education-card p {
+            color: var(--blue-text);
+        }
+
+
+
+        /* =========================================
+           CONTACT
+        ========================================= */
+
+        .contact-section {
+            text-align: center;
+        }
+
+
+        .contact-section .section-intro {
+            margin-left: auto;
+
+            margin-right: auto;
+        }
+
+
+        .contact-links {
+            display: flex;
+
+            justify-content: center;
+
+            gap: 15px;
+
+            flex-wrap: wrap;
+        }
+
+
+
+        /* =========================================
+           FOOTER
+        ========================================= */
+
+        footer {
+            border-top: 1px solid var(--border);
+
+            padding: 30px 0;
+
+            color: var(--blue-text);
+
+            text-align: center;
+
+            font-size: 14px;
+        }
+
+
+
+        /* =========================================
+           MOBILE
+        ========================================= */
+
+        @media (max-width: 850px) {
+
+            .nav-links {
+                gap: 15px;
+            }
+
+
+            .nav-links li:nth-child(3),
+            .nav-links li:nth-child(5) {
+                display: none;
+            }
+
+
+            .hero {
+                padding: 80px 0;
+            }
+
+
+            .hero-container {
+                grid-template-columns: 1fr;
+
+                text-align: left;
+            }
+
+
+            .hero-photo-wrapper {
+                justify-content: flex-start;
+            }
+
+
+            .hero h1 {
+                font-size: 58px;
+            }
+
+
+            .about-grid {
+                grid-template-columns: 1fr;
+            }
+
+
+            .experience-item {
+                grid-template-columns: 1fr;
+
+                gap: 10px;
+            }
+
+
+            .projects-grid {
+                grid-template-columns: 1fr;
+            }
+
+
+            .project-card.featured {
+                grid-column: span 1;
+            }
+
+
+            .education-grid {
+                grid-template-columns: 1fr;
+            }
+
+        }
+
+
+        @media (max-width: 600px) {
+
+            .nav-links {
+                display: none;
+            }
+
+
+            .hero h1 {
+                font-size: 50px;
+
+                letter-spacing: -2px;
+            }
+
+
+            .hero-title {
+                font-size: 24px;
+            }
+
+
+            .hero-description {
+                font-size: 17px;
+            }
+
+
+            section {
+                padding: 75px 0;
+            }
+
+
+            .project-card {
+                padding: 25px;
+            }
+
+        }
+
+    </style>
+
+
+
 </body>
 
 </html>
-    
