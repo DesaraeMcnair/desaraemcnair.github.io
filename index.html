@@ -1,1 +1,528 @@
-<!DOCTYPE html> <html lang="en"> <head> <meta charset="UTF-8"> <meta name="viewport" content="width=device-width, initial-scale=1.0"> <title>Desarae McNair | Technical Product Management</title> <meta name="description" content="Desarae McNair - Technical Product Management, UX, Computer Science, Cybersecurity, and Higher Education Technology."> <style> * { margin: 0; padding: 0; box-sizing: border-box; } html { scroll-behavior: smooth; } body { font-family: Arial, Helvetica, sans-serif; background: #f8f8f6; color: #171717; line-height: 1.6; } a { color: inherit; text-decoration: none; } /* Navigation */ nav { position: sticky; top: 0; z-index: 100; background: rgba(248, 248, 246, 0.95); border-bottom: 1px solid #deded9; backdrop-filter: blur(10px); } .nav-container { max-width: 1100px; margin: auto; padding: 18px 25px; display: flex; justify-content: space-between; align-items: center; } .logo { font-size: 18px; font-weight: 700; letter-spacing: 1px; } .nav-links { display: flex; gap: 25px; list-style: none; } .nav-links a { font-size: 14px; color: #555; transition: 0.2s; } .nav-links a:hover { color: #111; } /* General */ .container { max-width: 1100px; margin: auto; padding: 0 25px; } section { padding: 90px 0; } .section-label { font-size: 12px; text-transform: uppercase; letter-spacing: 2px; font-weight: 700; color: #666; margin-bottom: 12px; } h2 { font-size: 36px; line-height: 1.2; margin-bottom: 18px; } /* Hero */ .hero { min-height: 88vh; display: flex; align-items: center; border-bottom: 1px solid #deded9; } .hero-content { max-width: 850px; } .hero h1 { font-size: clamp(48px, 8vw, 86px); line-height: 0.95; letter-spacing: -4px; margin-bottom: 25px; } .hero h1 span { display: block; } .hero-subtitle { font-size: 22px; color: #444; max-width: 720px; margin-bottom: 25px; } .hero-description { max-width: 700px; color: #666; font-size: 16px; margin-bottom: 35px; } .buttons { display: flex; gap: 12px; flex-wrap: wrap; } .button { display: inline-block; padding: 13px 20px; border: 1px solid #171717; font-size: 14px; font-weight: 600; transition: 0.2s; } .button.primary { background: #171717; color: white; } .button:hover { transform: translateY(-2px); } /* About */ .about-grid { display: grid; grid-template-columns: 1fr 1.5fr; gap: 70px; align-items: start; } .about-text { font-size: 18px; color: #444; } .about-text p { margin-bottom: 20px; } .highlight-box { border-left: 3px solid #171717; padding-left: 25px; } .highlight-box h3 { font-size: 18px; margin-bottom: 10px; } .highlight-box p { color: #666; font-size: 15px; } /* Skills */ .skills-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; margin-top: 40px; } .skill-card { border: 1px solid #deded9; background: white; padding: 25px; } .skill-card h3 { font-size: 16px; margin-bottom: 15px; } .skill-card p { color: #666; font-size: 14px; } /* Projects */ .projects { background: #171717; color: white; } .projects .section-label { color: #aaa; } .projects-intro { color: #bbb; max-width: 650px; margin-bottom: 45px; } .project-list { display: grid; gap: 25px; } .project-card { background: #222; border: 1px solid #3a3a3a; padding: 35px; transition: 0.2s; } .project-card:hover { transform: translateY(-3px); border-color: #777; } .project-number { font-size: 12px; color: #999; letter-spacing: 2px; margin-bottom: 15px; } .project-card h3 { font-size: 27px; margin-bottom: 8px; } .project-type { font-size: 13px; color: #aaa; margin-bottom: 20px; } .project-card p { color: #c4c4c4; max-width: 750px; margin-bottom: 25px; } .project-links { display: flex; gap: 12px; flex-wrap: wrap; } .project-link { display: inline-block; padding: 10px 15px; border: 1px solid #777; font-size: 13px; font-weight: 600; transition: 0.2s; } .project-link:hover { background: white; color: #171717; } /* Experience */ .experience-list { margin-top: 40px; } .experience-item { display: grid; grid-template-columns: 200px 1fr; gap: 40px; padding: 30px 0; border-top: 1px solid #deded9; } .experience-date { font-size: 13px; color: #777; } .experience-item h3 { font-size: 20px; margin-bottom: 4px; } .experience-company { font-size: 14px; color: #666; margin-bottom: 12px; } .experience-item p { color: #555; font-size: 15px; max-width: 750px; } /* Education */ .education-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 25px; margin-top: 40px; } .education-card { background: white; border: 1px solid #deded9; padding: 30px; } .education-card h3 { font-size: 18px; margin-bottom: 5px; } .education-card p { color: #666; font-size: 14px; } /* Contact */ .contact { background: #eaeae5; } .contact-content { max-width: 750px; } .contact-content p { color: #555; margin-bottom: 30px; font-size: 17px; } .contact-links { display: flex; gap: 15px; flex-wrap: wrap; } /* Footer */ footer { background: #171717; color: #aaa; padding: 25px; text-align: center; font-size: 13px; } /* Mobile */ @media (max-width: 750px) { .nav-container { padding: 15px 20px; } .nav-links { display: none; } .container { padding: 0 20px; } section { padding: 65px 0; } .hero { min-height: 80vh; } .hero h1 { font-size: 55px; letter-spacing: -3px; } .hero-subtitle { font-size: 18px; } h2 { font-size: 30px; } .about-grid, .skills-grid, .education-grid { grid-template-columns: 1fr; } .experience-item { grid-template-columns: 1fr; gap: 10px; } .project-card { padding: 25px; } } </style> </head> <body> <!-- NAVIGATION --> <nav> <div class="nav-container"> <a href="#home" class="logo"> DM </a> <ul class="nav-links"> <li><a href="#about">About</a></li> <li><a href="#skills">Skills</a></li> <li><a href="#projects">Projects</a></li> <li><a href="#experience">Experience</a></li> <li><a href="#contact">Contact</a></li> </ul> </div> </nav> <!-- HERO --> <section class="hero" id="home"> <div class="container"> <div class="hero-content"> <div class="section-label"> Technical Product Management · UX · Computer Science </div> <h1> Desarae <span>McNair</span> </h1> <p class="hero-subtitle"> I connect technology, user needs, and product strategy to create practical digital solutions. </p> <p class="hero-description"> Technical Product Management professional with a background in Computer Science, cybersecurity, machine learning research, higher education, and military leadership. </p> <div class="buttons"> <a href="#projects" class="button primary"> View My Work </a> <!-- REPLACE WITH YOUR ACTUAL RESUME LINK --> <a href="YOUR_RESUME_LINK_HERE" class="button" target="_blank"> View Resume </a> </div> </div> </div> </section> <!-- ABOUT --> <section id="about"> <div class="container"> <div class="about-grid"> <div> <div class="section-label"> About </div> <h2> Technology meets people. </h2> </div> <div class="about-text"> <p> My work sits at the intersection of technology, user experience, and problem solving. </p> <p> My background includes academic advising, technical instruction, cybersecurity research, machine learning, product strategy, and UX-focused projects. </p> <p> I enjoy understanding a problem from the user's perspective, translating that need into requirements, and designing solutions that are practical, intuitive, and measurable. </p> <div class="highlight-box"> <h3> What I bring </h3> <p> Technical knowledge + user-centered thinking + stakeholder collaboration + product strategy. </p> </div> </div> </div> </div> </section> <!-- SKILLS --> <section id="skills"> <div class="container"> <div class="section-label"> Capabilities </div> <h2> Skills & Expertise </h2> <div class="skills-grid"> <div class="skill-card"> <h3> Product </h3> <p> Product Strategy · Product Discovery · Requirements Gathering · Roadmapping · Agile Methodologies · Stakeholder Management </p> </div> <div class="skill-card"> <h3> UX & Research </h3> <p> User Research · HCI · UX Strategy · Persona Development · User Journeys · Service Design · Usability </p> </div> <div class="skill-card"> <h3> Technology </h3> <p> Python · SQL · AWS · Azure · Machine Learning · Cybersecurity · Mainframe Technologies · COBOL </p> </div> </div> </div> </section> <!-- PROJECTS --> <section class="projects" id="projects"> <div class="container"> <div class="section-label"> Selected Work </div> <h2> Projects </h2> <p class="projects-intro"> A selection of product, UX, and technical projects demonstrating how I approach problems, users, and technology. </p> <div class="project-list"> <!-- PROJECT 01 --> <div class="project-card"> <div class="project-number"> 01 / PRODUCT + UX </div> <h3> Advising Hub </h3> <div class="project-type"> Technical Product Management · UX Strategy </div> <p> A centralized advising platform prototype designed around academic planning, communication, and student success. The concept was inspired by real-world student advising needs and focuses on creating a more centralized experience for students. </p> <div class="project-links"> <!-- REPLACE THIS WITH YOUR ADVISING HUB FIGMA LINK --> <a href="YOUR_ADVISING_HUB_FIGMA_LINK" class="project-link" target="_blank"> View Prototype → </a> </div> </div> <!-- PROJECT 02 --> <div class="project-card"> <div class="project-number"> 02 / PRODUCT + UX </div> <h3> Student Job Connect </h3> <div class="project-type"> Product Strategy · UX Design · User Research </div> <p> A student employment platform concept designed to connect college students with flexible, degree-relevant work opportunities. The project explores user needs, personas, product features, and MVP planning. </p> <div class="project-links"> <!-- REPLACE THIS WITH YOUR STUDENT JOB CONNECT FIGMA LINK --> <a href="YOUR_STUDENT_JOB_FIGMA_LINK" class="project-link" target="_blank"> View Prototype → </a> </div> </div> <!-- PROJECT 03 --> <div class="project-card"> <div class="project-number"> 03 / PRODUCT + SERVICE DESIGN </div> <h3> Mobile Mechanic Marketplace </h3> <div class="project-type"> Product Strategy · Service Design · UX </div> <p> An on-demand mobile mechanic marketplace concept connecting customers with mobile mechanics. The project explores customer journeys, service blueprints, product requirements, and the overall service experience. </p> <div class="project-links"> <!-- REPLACE THIS WITH YOUR MOBILE MECHANIC FIGMA LINK --> <a href="YOUR_MOBILE_MECHANIC_FIGMA_LINK" class="project-link" target="_blank"> View Prototype → </a> </div> </div> <!-- PROJECT 04 --> <div class="project-card"> <div class="project-number"> 04 / CYBERSECURITY + MACHINE LEARNING </div> <h3> IoT Cybersecurity Research </h3> <div class="project-type"> Machine Learning · Cybersecurity · Research </div> <p> Graduate research focused on machine-learning approaches for network traffic and IoT cybersecurity anomaly detection. The work combined technical analysis, experimentation, and research communication. </p> <div class="project-links"> <!-- OPTIONAL: ADD GITHUB OR RESEARCH LINK --> <a href="YOUR_GITHUB_OR_RESEARCH_LINK" class="project-link" target="_blank"> View Research → </a> </div> </div> </div> </div> </section> <!-- EXPERIENCE --> <section id="experience"> <div class="container"> <div class="section-label"> Experience </div> <h2> What I've Done </h2> <div class="experience-list"> <div class="experience-item"> <div class="experience-date"> 2024 — Present </div> <div> <h3> Academic Advisor </h3> <div class="experience-company"> The University of Southern Mississippi </div> <p> Advise 572+ undergraduate students while using academic performance and engagement data to identify barriers, support student success, and improve advising processes. Collaborate with faculty, administrators, and student support services. </p> </div> </div> <div class="experience-item"> <div class="experience-date"> 2026 — Present </div> <div> <h3> Adjunct Instructor </h3> <div class="experience-company"> The University of Southern Mississippi </div> <p> Teach undergraduate Mainframe Systems and COBOL, developing hands-on learning activities and translating technical concepts into accessible instruction. </p> </div> </div> <div class="experience-item"> <div class="experience-date"> 2024 — 2025 </div> <div> <h3> Research Assistant </h3> <div class="experience-company"> The University of Southern Mississippi </div> <p> Conducted machine-learning research focused on network traffic and IoT cybersecurity anomaly detection. Analyzed technical results and communicated findings through research documentation and presentations. </p> </div> </div> <div class="experience-item"> <div class="experience-date"> 2023 </div> <div> <h3> Equipment Specialist </h3> <div class="experience-company"> The University of Southern Mississippi </div> <p> Managed technical equipment projects, troubleshooting, stakeholder requests, and project deliverables. </p> </div> </div> </div> </div> </section> <!-- EDUCATION --> <section> <div class="container"> <div class="section-label"> Education </div> <h2> Education & Development </h2> <div class="education-grid"> <div class="education-card"> <h3> M.S. Computer Science </h3> <p> The University of Southern Mississippi </p> </div> <div class="education-card"> <h3> B.S. Cybersecurity </h3> <p> The University of Southern Mississippi </p> </div> <div class="education-card"> <h3> IBM Project Management Professional Certificate </h3> <p> Expected December 2026 </p> </div> <div class="education-card"> <h3> Leadership </h3> <p> IBM Z Student Ambassador · LSAMP Vice President & Founding Member · U.S. Army Veteran </p> </div> </div> </div> </section> <!-- CONTACT --> <section class="contact" id="contact"> <div class="container"> <div class="contact-content"> <div class="section-label"> Contact </div> <h2> Let's connect. </h2> <p> I'm interested in opportunities involving technical product management, higher education technology, EdTech, UX, and technology program or project management. </p> <div class="contact-links"> <!-- EMAIL --> <a href="mailto:alkendria.mcnair@outlook.com" class="button primary"> Email Me </a> <!-- REPLACE WITH YOUR LINKEDIN URL --> <a href="YOUR_LINKEDIN_URL" class="button" target="_blank"> LinkedIn </a> <!-- REPLACE WITH YOUR GITHUB PROFILE --> <a href="YOUR_GITHUB_PROFILE_URL" class="button" target="_blank"> GitHub </a> </div> </div> </div> </section> <!-- FOOTER --> <footer> © 2026 Desarae McNair · Technical Product Management & Technology </footer> </body> </html>
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Desarae McNair | Technology & Product Strategy</title>
+
+    <style>
+
+        /* =========================
+           GENERAL STYLES
+        ========================= */
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: Arial, sans-serif;
+            line-height: 1.6;
+            color: #222;
+            background: #ffffff;
+        }
+
+        a {
+            text-decoration: none;
+            color: inherit;
+        }
+
+        .container {
+            width: 90%;
+            max-width: 1200px;
+            margin: auto;
+        }
+
+        /* =========================
+           NAVIGATION
+        ========================= */
+
+        nav {
+            position: sticky;
+            top: 0;
+            background: white;
+            padding: 20px 0;
+            border-bottom: 1px solid #eee;
+            z-index: 1000;
+        }
+
+        nav .container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        nav ul {
+            display: flex;
+            gap: 25px;
+            list-style: none;
+        }
+
+        nav a:hover {
+            opacity: 0.6;
+        }
+
+        /* =========================
+           HERO SECTION
+        ========================= */
+
+        .hero {
+            padding: 120px 0;
+            text-align: center;
+        }
+
+        .hero h1 {
+            font-size: 60px;
+            margin-bottom: 20px;
+        }
+
+        .hero p {
+            font-size: 22px;
+            max-width: 750px;
+            margin: auto;
+        }
+
+        /* =========================
+           SECTION STYLES
+        ========================= */
+
+        section {
+            padding: 90px 0;
+        }
+
+        section h2 {
+            font-size: 40px;
+            margin-bottom: 30px;
+        }
+
+    </style>
+</head>
+<body>
+
+    <!-- =========================
+         NAVIGATION
+    ========================= -->
+
+    <nav>
+        <div class="container">
+
+            <strong>Desarae McNair</strong>
+
+            <ul>
+                <li><a href="#about">About</a></li>
+                <li><a href="#skills">Skills</a></li>
+                <li><a href="#projects">Projects</a></li>
+                <li><a href="#experience">Experience</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+
+        </div>
+    </nav>
+
+
+    <!-- =========================
+         HERO
+    ========================= -->
+
+    <section class="hero">
+
+        <div class="container">
+
+            <h1>Desarae McNair</h1>
+
+            <p>
+                I connect technology, user needs, and product strategy
+                to create practical digital solutions.
+            </p>
+
+        </div>
+
+    </section>
+      <!-- =========================
+         ABOUT
+    ========================= -->
+
+    <section id="about">
+
+        <div class="container">
+
+            <h2>Technology should adapt to people.</h2>
+
+            <p>
+                I am a technology professional with a background in
+                computer science, cybersecurity, higher education,
+                user experience, and product strategy.
+            </p>
+
+            <br>
+
+            <p>
+                My work focuses on understanding how people interact
+                with technology and turning those needs into practical,
+                user-centered solutions.
+            </p>
+
+            <br>
+
+            <p>
+                I am especially interested in the intersection of
+                technology, education, accessibility, artificial
+                intelligence, and product development.
+            </p>
+
+        </div>
+
+    </section>
+      <!-- =========================
+         SKILLS
+    ========================= -->
+
+    <section id="skills">
+
+        <div class="container">
+
+            <h2>Skills</h2>
+
+            <h3>Product Strategy</h3>
+
+            <p>
+                Product Discovery • Roadmapping • Requirements Gathering
+                • Stakeholder Management • Agile Methodologies
+            </p>
+
+            <br>
+
+            <h3>UX & Research</h3>
+
+            <p>
+                User Research • HCI • UX Strategy • User Personas
+                • Usability • Journey Mapping
+            </p>
+
+            <br>
+
+            <h3>Technology</h3>
+
+            <p>
+                Python • SQL • AWS • Azure • Machine Learning
+                • Cybersecurity • COBOL • Mainframe Technologies
+            </p>
+
+        </div>
+
+    </section>
+    <!-- =========================
+         PROJECTS
+    ========================= -->
+
+    <section id="projects">
+
+        <div class="container">
+
+            <h2>Projects</h2>
+
+
+            <!-- Neuro Adapt AI -->
+
+            <div class="project-card">
+
+                <h3>Neuro Adapt AI</h3>
+
+                <p>
+                    Assistive technology concept focused on creating
+                    technology that learns the individual rather than
+                    requiring the individual to learn the technology.
+                </p>
+
+                <p>
+                    <strong>Focus:</strong>
+                    AI • Accessibility • Product Strategy • UX
+                </p>
+
+                <a
+                    href="https://www.figma.com/make/QAwxkUseq6yOP6yF7zvnFY/High-Fidelity-Prototype-for-Neuro-Adapt-AI?t=aOg0WsbCCE9SAnrg-1"
+                    target="_blank"
+                    rel="noopener noreferrer">
+                    View Prototype →
+                </a>
+
+            </div>
+
+
+            <!-- Advising Hub -->
+
+            <div class="project-card">
+
+                <h3>Advising Hub</h3>
+
+                <p>
+                    Centralized advising platform concept designed to
+                    improve academic planning, communication, and
+                    student success.
+                </p>
+
+                <p>
+                    <strong>Focus:</strong>
+                    Product Management • UX Strategy • Higher Education
+                </p>
+
+                <a
+                    href="https://www.figma.com/make/cvJzL1l3Rx2j5ljgOvPysQ/Advising-website?t=fBPPiTjv8V4phSsI-1"
+                    target="_blank"
+                    rel="noopener noreferrer">
+                    View Prototype →
+                </a>
+
+            </div>
+
+
+            <!-- Student Job Connect -->
+
+            <div class="project-card">
+
+                <h3>Student Job Connect</h3>
+
+                <p>
+                    Student employment platform designed to connect
+                    students with flexible, degree-relevant employment
+                    opportunities.
+                </p>
+
+                <p>
+                    <strong>Focus:</strong>
+                    Product Discovery • User Research • UX Design
+                </p>
+
+                <a
+                    href="https://www.figma.com/make/MGXNO8SrnERQQr5AHc2qAj/Student-Job-Connection-Platform?t=gtfMAKo6FdtvFnRD-1"
+                    target="_blank"
+                    rel="noopener noreferrer">
+                    View Prototype →
+                </a>
+
+            </div>
+
+
+            <!-- Mobile Mechanic -->
+
+            <div class="project-card">
+
+                <h3>Mobile Mechanic Marketplace</h3>
+
+                <p>
+                    On-demand marketplace concept connecting customers
+                    with mobile automotive service providers.
+                </p>
+
+                <p>
+                    <strong>Focus:</strong>
+                    Product Strategy • Service Design • Customer Journey
+                </p>
+
+            </div>
+
+
+            <!-- IoT Cybersecurity -->
+
+            <div class="project-card">
+
+                <h3>IoT Cybersecurity Research</h3>
+
+                <p>
+                    Research focused on machine learning models for
+                    detecting anomalies in network traffic and
+                    Internet of Things environments.
+                </p>
+
+                <p>
+                    <strong>Focus:</strong>
+                    Machine Learning • Cybersecurity • Research
+                </p>
+
+            </div>
+
+        </div>
+
+    </section>
+      <!-- =========================
+         EXPERIENCE
+    ========================= -->
+
+    <section id="experience">
+
+        <div class="container">
+
+            <h2>Experience</h2>
+
+
+            <h3>Academic Advisor</h3>
+
+            <p>
+                University of Southern Mississippi | 2024–Present
+            </p>
+
+            <p>
+                Manage academic advising and student success for
+                572+ undergraduate students while identifying
+                opportunities to improve student processes and
+                technology.
+            </p>
+
+            <br>
+
+
+            <h3>Adjunct Instructor</h3>
+
+            <p>
+                University of Southern Mississippi | 2026–Present
+            </p>
+
+            <p>
+                Teach undergraduate Mainframe Systems and COBOL,
+                helping students develop technical skills and
+                industry-relevant knowledge.
+            </p>
+
+            <br>
+
+
+            <h3>Research Assistant</h3>
+
+            <p>
+                University of Southern Mississippi | 2024–2025
+            </p>
+
+            <p>
+                Conducted cybersecurity research involving machine
+                learning, network traffic, and IoT anomaly detection.
+            </p>
+
+            <br>
+
+
+            <h3>Equipment Specialist</h3>
+
+            <p>
+                2023
+            </p>
+
+            <p>
+                Managed technical equipment projects, troubleshooting,
+                stakeholder requests, and project deliverables.
+            </p>
+
+        </div>
+
+    </section>
+      <!-- =========================
+         EDUCATION & DEVELOPMENT
+    ========================= -->
+
+    <section id="education">
+
+        <div class="container">
+
+            <h2>Education & Development</h2>
+
+            <p>
+                <strong>M.S. Computer Science</strong><br>
+                University of Southern Mississippi
+            </p>
+
+            <br>
+
+            <p>
+                <strong>B.S. Cybersecurity</strong><br>
+                University of Southern Mississippi
+            </p>
+
+            <br>
+
+            <p>
+                <strong>IBM Project Management Professional Certificate</strong><br>
+                Expected December 2026
+            </p>
+
+            <br>
+
+            <p>
+                <strong>Leadership</strong><br>
+                IBM Z Student Ambassador<br>
+                LSAMP Vice President & Founding Member
+            </p>
+
+        </div>
+
+    </section>
+      <!-- =========================
+         CONTACT
+    ========================= -->
+
+    <section id="contact">
+
+        <div class="container">
+
+            <h2>Let's Connect</h2>
+
+            <p>
+                I am interested in opportunities involving technology,
+                product strategy, higher education, UX, EdTech,
+                and innovative digital solutions.
+            </p>
+
+            <br>
+
+            <p>
+                Email:
+                <a href="mailto:alkendria.mcnair@outlook.com">
+                    alkendria.mcnair@outlook.com
+                </a>
+            </p>
+
+            <br>
+
+            <p>
+                LinkedIn:
+                <a href="#" target="_blank">
+                    LinkedIn Profile
+                </a>
+            </p>
+
+            <p>
+                GitHub:
+                <a href="#" target="_blank">
+                    GitHub Profile
+                </a>
+            </p>
+
+        </div>
+
+    </section>
+
+
+    <!-- =========================
+         FOOTER
+    ========================= -->
+
+    <footer>
+
+        <div class="container">
+
+            <p>
+                © 2026 Desarae McNair. All rights reserved.
+            </p>
+
+        </div>
+
+    </footer>
+
+
+</body>
+
+</html>
+    
